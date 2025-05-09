@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Obraimar Constructions - Work in progress</title>
+  <title>Jeimar Europa - Work in progress</title>
   
   <style>
     html {
@@ -95,7 +95,7 @@
     /* Estilos de la sección hero */
     .hero {
       position: relative;
-      height: 80vh;
+      height: 70vh;
       overflow: hidden;
       color: white;
       text-align: center;
@@ -114,11 +114,20 @@
       z-index: -1;
     }
     
+    #hero-video-mobile {
+  display: none; /* Ocultar el video de móvil por defecto */
+}
+
+#hero-video-desktop {
+  display: block; /* Mostrar el video de escritorio por defecto */
+}
+    
     .hero-content {
       position: absolute;
       top: 50%;
       left: 50%;
       width: 80%;
+      max-width: 1000px;
       transform: translate(-50%, -50%);
       text-align: center;
       z-index: 1;
@@ -127,15 +136,16 @@
     .hero h1 {
       font-family: 'OverusedGrotesk', Arial, sans-serif;
       font-weight: 900;
-      font-size: 2rem;
+      font-size: 2.5rem;
       margin-bottom: 1rem;
       letter-spacing: -0.02em;
       padding: 3rem 0.5rem;
       border: 3px solid white;
+      
     }
     
     .hero p {
-      font-size: 1.5rem;
+      font-size: 2rem;
       margin-bottom: 4rem;
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
     }
@@ -166,6 +176,12 @@
       max-width: 1200px;
       margin: 0 auto;
     }
+    
+
+    
+   /* .cards-section > .card:last-child:nth-child(3n + 1) {
+  grid-column: 2 / 3;
+} */
     
     .card {
       background: #f4f4f4;
@@ -320,7 +336,7 @@
       align-items: center;
       margin-bottom: 1rem;
       
-      margin: 0 auto 10px auto;
+      margin: 1rem auto 1rem auto;
       width: 100%;
       
     }
@@ -418,6 +434,35 @@
       box-shadow: 0 0 0 3px rgba(214, 132, 82, 0.2);
       outline: none;
     }
+    
+    .checkbox-container {
+    display: flex;
+    align-items: left;
+    gap: 8px; /* Espacio entre checkbox y texto */
+    font-family: sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .checkbox-container input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #D68452; /* Color del checkbox si el navegador lo soporta */
+    
+    margin: 0;
+  }
+  
+  .checkbox-container span {
+      font-family: 'Manrope';
+      font-size: 0.7rem;
+  }
+  
+  .checkbox-container a {
+    color: #D68452;
+    text-decoration: none;
+    font-size: 0.7rem;
+    
+  }
 
     form button {
       background-color: #D68452;
@@ -504,6 +549,29 @@
     
     /* Media queries - Responsive design */
     
+    @media (min-width: 900px) {
+    
+      .cards-section > .card:nth-child(1) {
+        grid-row: 1 / 3;
+      }
+  
+      .cards-section > .card:nth-child(7) {
+        grid-column: 2 / 4;
+      }
+    }
+    
+    /* Tablet Grid */
+    
+    @media (max-width: 900px) and (min-width: 600px) {
+      .cards-section { 
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .cards-section > .card:last-child {
+        grid-column: 1 / span 2;
+      }
+    }
+    
     @media (max-width: 1024px) {
       
       .contact-section {
@@ -514,11 +582,10 @@
       .contact-form {
         flex: 1 0 300px;
       }
-    
     } 
-
-    
+ 
     @media (max-width: 768px) {
+    
       nav {
         padding: 0rem 0.8rem;
       }
@@ -542,7 +609,7 @@
       }
       
       .menu-toggle:checked + .menu {
-        max-height: 13rem;
+        max-height: 19rem;
       }
       
       .menu-icon {
@@ -591,7 +658,17 @@
         flex: 0 0 100%; /* En móvil ocupan todo el ancho disponible */
         max-width: 500px; 
       }
-      
+    }
+    
+    @media (max-width: 600px) {
+    
+      #hero-video-mobile {
+        display: block; /* Mostrar el video móvil */
+      }
+
+      #hero-video-desktop {
+        display: none; /* Ocultar el video de escritorio */
+      }
     }
     
     @media (max-width: 480px) {
@@ -612,6 +689,73 @@
         max-width: 100%;
       }
     }
+    
+        @media (max-width: 380px) {
+      .hero h1 {
+        font-size: 1rem;
+        padding: 3rem 0.3rem;
+      }
+      
+      .hero p {
+        font-size: 0.8rem;
+      }
+    }
+    
+    .language-switcher {
+  position: fixed;
+  bottom: 0px;
+  
+  left: 20px;
+  
+  background-color: #f4f4f4;
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+}
+
+.flag-btn {
+  display: inline-block;
+  cursor: pointer;
+  margin-bottom: 0px;
+  
+  padding: 3px 3px 0 3px;
+  
+  width: 38px;
+  
+  
+}
+
+.flag-btn img,
+.flag-menu img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  
+}
+
+.flag-menu {
+  display: flex;
+  flex-direction: column-reverse;
+  
+  margin-bottom: 0px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.8s ease;
+  padding: 0 3px 3px 3px;
+  
+  
+  
+}
+
+
+/* Mostrar el menú cuando el checkbox está activado */
+#toggle-lang:checked + .flag-btn + .flag-menu {
+  max-height: 500px; /* suficientemente grande para mostrar todo */
+}
+
+
+
+    
   </style>
 </head>
 <body>
@@ -629,13 +773,20 @@
     <ul class="menu">
       <li><a href="#inicio"><strong>Inicio</strong></a></li>
       <li><a href="#servicios"><strong>Servicios</strong></a></li>
+      <li><a href="#contacto"><strong>Resultados</strong></a></li>
+      <li><a href="#contacto"><strong>Empresa</strong></a></li>
       <li><a href="#contacto"><strong>Contacto</strong></a></li>
     </ul>
   </nav>
   
   <section id="inicio" class="hero">
-    <video autoplay muted loop playsinline class="background-video" poster="./assets/img/hero-poster.jpg">
+    <video id="hero-video-mobile" autoplay muted loop playsinline class="background-video" poster="./assets/img/hero-poster.jpg">
       <source src="./assets/videos/hero-mobile.mp4" type="video/mp4">
+      Tu navegador no soporta el video HTML5.
+    </video>
+    
+    <video id="hero-video-desktop" autoplay muted loop playsinline class="background-video" poster="./assets/img/hero-poster.jpg">
+      <source src="./assets/videos/hero-h265-converter-533k.mp4" type="video/mp4">
       Tu navegador no soporta el video HTML5.
     </video>
     <div class="hero-content">
@@ -784,6 +935,13 @@
           <textarea name="message" required></textarea>
         </label>
       </p>
+      
+      <p>
+        <label class="checkbox-container">
+          <input type="checkbox" name="privacidad" required>
+          <span>He leído y acepto la <a href="/politica-de-privacidad" target="_blank">Política de Privacidad</a>.</span>
+        </label>
+      </p>
       <!-- reCAPTCHA (opcional, debes activarlo en Netlify y tener clave de sitio configurada) -->
       <!-- <div data-netlify-recaptcha="true"></div> -->
       <p>
@@ -804,15 +962,20 @@
         <ul>
           <li><a href="#inicio">Inicio</a></li>
           <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#contacto">Resultados</a></li>
+          <li><a href="#contacto">Empresa</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
       </div>
       <div class="footer-column">
         <h4>Contacto</h4>
         <ul>
+          
+          <li>Asun <i>(EN): </i><a href="tel:+34630651680">+34 630 65 16 80</a></li>
+          <li>Pablo <i>(DE / IT): </i><a href="tel:+34614105319">+34 614 10 53 19</a></li>
+          <li>Ángel <i>(FR): </i><a href="tel:+34684454822">+34 684 45 48 22</a></li>
+          <li>Jesús <i>(ES): </i><a href="tel:+34637702030">+34 637 70 20 30</a></li>
           <li>Email: <a href="mailto:info@obraimar.com">info@jeimareuropa.com</a></li>
-          <li>Teléfono: <a href="tel:+34614105319">+34 614 10 53 19</a></li>
-          <li>Móvil: <a href="tel:+34614105319">+34 614 10 53 19</a></li>
         </ul>
       </div>
     </div>
@@ -820,6 +983,26 @@
       <p>&copy; 2025 Jeimar Europa. Todos los derechos reservados.</p>
     </div>
   </footer>
+
+<div class="language-switcher">
+    
+    
+    
+  <input type="checkbox" id="toggle-lang" hidden>
+  
+  <label for="toggle-lang" class="flag-btn">
+    <img src="./assets/icons/es-flag.png" alt="ES">
+  </label>
+  
+  <div class="flag-menu">
+    <a href="#"><img src="./assets/icons/en-flag.png" alt="EN"></a>
+    <a href="#"><img src="./assets/icons/fr-flag.png" alt="FR"></a>
+    <a href="#"><img src="./assets/icons/de-flag.png" alt="DE"></a>
+    <a href="#"><img src="./assets/icons/it-flag.png" alt="IT"></a>
+  </div>
+  
+</div>
+
 
   <script>
     // Script para la animación de la línea diagonal - Reemplaza jQuery
