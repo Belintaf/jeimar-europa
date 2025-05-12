@@ -1,976 +1,250 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jeimar Europa - Work in progress</title>
+  <title>Jeimar Europa | Construction, Renovations, and Interior Design in Murcia</title>
+  <meta name="description" content="Family business with over 30 years of experience in construction, full renovations, landscaping, and interior design. Quality, 15-year warranty, and service in 5 languages. Based in Murcia.">
+  <meta name="keywords" content="construction Murcia, full renovations, interior design, landscaping, swimming pools, flooring, foundations, structures, construction company, turnkey renovations, villa construction, second-generation builders, bilingual company, personalized service">
+  <meta name="author" content="Jeimar Europa">
+  
+  <meta name="language" content="en">
+  <meta http-equiv="Content-Language" content="en">
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://www.jeimareuropa.com/favicon.ico" type="image/x-icon">
+
+  <link rel="preload" href="./assets/fonts/NHaasGroteskDSPro-95Blk.woff2" as="font" type="font/woff2" />
+  <link rel="preload" href="./assets/fonts/manrope-medium.woff2" as="font" type="font/woff2" />
+  <link rel="stylesheet" href="./assets/css/styles.css">
+  <script src="./assets/js/script.js" defer></script>
   
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-      
-    @font-face {
-      font-family: 'OverusedGrotesk';
-      src: url('./assets/fonts/NHaasGroteskDSPro-95Blk.woff2') format('woff2');
-      font-weight: 900;
-      font-style: normal;
-      font-display: swap;
-    }
-    
-    @font-face {
-      font-family: 'Manrope';
-      src: url('./assets/fonts/manrope-medium.woff2') format('woff2');
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    }
-    
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: 'Manrope', Arial, sans-serif;
-      background-color: #DADBDD;
-    }
-    
-    /* The Diagonal */
-    .diagonal-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      z-index: -999;
-      pointer-events: none;
-      overflow: hidden;
-    }
-    
-    .diagonal-bg svg line {
-      transition: stroke-width 0.0s ease-out;
-    }
-    
-    /* Navegación */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background-color: #DADBDD;
-      padding: 0.5rem;   
-      text-align: right;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    nav .logo {
-      height: 1.3rem;
-    }
-    
-    .menu {
-      display: flex;
-      list-style: none;
-    }
-    
-    .menu li {
-      display: inline-block;
-    }
-    
-    .menu a {
-      font-family: 'Manrope';
-      color: #2d2d2d;
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-      display: block;
-      transition: background-color 0.3s ease;
-    }
-    
-    .menu a:hover {
-      background-color: #D68452;
-    }
-    
-    /* Estilos de la sección hero */
-    .hero {
-      position: relative;
-      height: 70vh;
-      overflow: hidden;
-      color: white;
-      text-align: center;
-      padding: 6rem 2rem;
-      margin-bottom: 3rem;
-      box-shadow: 0 0 34px 0 rgba(0, 0, 0, 0.3);
-    }
-    
-    .background-video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-    }
-    
-    #hero-video-mobile {
-  display: none; /* Ocultar el video de móvil por defecto */
-}
 
-#hero-video-desktop {
-  display: block; /* Mostrar el video de escritorio por defecto */
-}
-    
-    .hero-content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 80%;
-      max-width: 1000px;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      z-index: 1;
-    }
-    
-    .hero h1 {
-      font-family: 'OverusedGrotesk', Arial, sans-serif;
-      font-weight: 900;
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      letter-spacing: -0.02em;
-      padding: 3rem 0.5rem;
-      border: 3px solid white;
-      
-    }
-    
-    .hero p {
-      font-size: 2rem;
-      margin-bottom: 4rem;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-    }
-    
-    .btn {
-      font-family: 'Manrope';
-      display: inline-block;
-      background-color: #D68452;
-      color: white;
-      padding: 0.8rem 1.5rem;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
-    
-    .btn:hover {
-      background-color: #ff5252;
-    }
-    
-    /* Estilos para Cards */
-    .cards-section {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      padding: 2rem;
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    
-
-    
-   /* .cards-section > .card:last-child:nth-child(3n + 1) {
-  grid-column: 2 / 3;
-} */
-    
-    .card {
-      background: #f4f4f4;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      
-      
-    }
-    
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-    }
-    
-    .card h3 {
-      font-family: 'OverusedGrotesk', Arial, sans-serif;
-      margin-bottom: 1rem;
-      font-size: 1.4rem;
-      color: #2D2D2D;
-    }
-    
-    .card p {
-      font-size: 1rem;
-      line-height: 1.5;
-      color: #2D2D2D;
-    }
-    
-    /* Estilos para Main */
-    main {
-      padding: 0 2rem;
-      max-width: 1200px;
-      margin: 0 auto 2rem;
-    }
-    
-    main h1 {
-      position: relative;
-      font-family: 'OverusedGrotesk', Arial, sans-serif;
-      font-weight: 900;
-      font-size: 2.7rem;
-      color: #f4f4f4;
-      margin-bottom: 1rem;
-      mix-blend-mode: screen;
-    }
-    
-    main hr {
-      border: 0;
-      height: 0.6rem;
-      width: 7rem;
-      background-color: #fff;
-      margin-bottom: 2.5rem;
-    }
-    
-    main p {
-      font-size: 1.2rem;
-      line-height: 1.6;
-      margin-bottom: 2rem;
-      color: #2d2d2d;
-    }
-    
-    /* Estilos para Contact */
-
-    
-    
-   /* .contact-section {
-      padding: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-      
-    } */
-    
-    .contact-section {
-      padding: 1.5rem; 
-      max-width: 1200px; 
-      margin: 0 auto; /* Esta es la clave - convertimos a flex la sección que ya existe */
-      display: flex;
-      justify-content: space-between;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-    
-    
-    
-    .contact {
-      background: #f4f4f4;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      text-align: left;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      max-width: 340px;
-      flex: 0 1 340px;
-    }
-    
-    .contact-phone {
-      flex: 0 0 340px; /* ancho fijo de 340px, no crecerá ni se encogerá */
-      max-width: 340px;
-    }
-    
-    .contact-form.contact { max-width: none; }
-    
-    .contact-form {
-      flex: 1 0 300px; /* crecerá para llenar el espacio disponible, mínimo 500px */
-      max-width: none;
-      width: auto;
-    }
-    
-    .contact h2 {
-      position: relative;
-      font-family: 'OverusedGrotesk', Arial, sans-serif;
-      font-weight: 900;
-      font-size: 2rem;
-      color: #D68452;
-      margin-bottom: 0.8rem;
-    }
-    
-    .contact p {
-      font-size: 1rem;
-      line-height: 1.5;
-      margin-bottom: 2rem;
-      color: #2d2d2d;
-      text-align: left;
-    }
-    
-    .contact-info a {
-      position: relative;
-      font-family: 'OverusedGrotesk', Arial, sans-serif;
-      font-weight: 900;
-      font-size: 1.5rem;
-      color: #2d2d2d;
-      line-height: 1.6;
-      text-align: center;
-      text-decoration: none;
-      display: block;
-      margin-bottom: 0.8rem;
-    }
-    
-    .contact hr {
-      border: 0;
-      height: 0.35rem;
-      width: 4.3rem;
-      background-color: #D68452;
-      margin-bottom: 2.5rem;
-    }
-    
-    .contact-item {
-      display: grid;
-      grid-template-columns: 3.5rem auto;
-      gap: 0px;
-      align-items: center;
-      margin-bottom: 1rem;
-      
-      margin: 1rem auto 1rem auto;
-      width: 100%;
-      
-    }
-    
-    .contact-flag {
-      
-      width: 2.7rem;
-      height: 1.8rem;
-      border-radius: 5px;
-      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-      justify-self: center;
-    }
-    
-    .flag-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem; /* Espacio entre banderas */
-  justify-self: center; /* Centra el stack en la celda de grid */
-  grid-row: 1 / span 1; /* Asegura que esté en la misma fila que contact-info */
-  grid-column: 1;
-}
-    
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      
-      
-    }
-    
-    .contact-info a {
-      font-size: 1.3rem;
-      margin-bottom: 0rem;
-    }
-    
-    .contact-info span {
-      font-size: 0.9rem;
-      color: #666;
-      text-align: center;
-      
-    }
-    
-    .contact-email {
-      margin: 2rem 0;
-      text-align: center;
-    }
-    
-    .contact-logo {
-      display: block;
-      height: 7rem;
-      margin: 2rem auto 0;
-    }
-    
-    /* Estilos para Form */
-    
-    .contact form p {
-        margin-bottom: 0.8rem;
-    }
-    
-    .contact-form a {
-        font-family: 'Manrope';
-        text-decoration: none;
-        color: #D68452;
-        font-weight: bold;
-    }
-    
-    form label {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: #2D2D2D;
-    }
-
-    form input,
-    form textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 1rem;
-      font-family: inherit;
-      transition: border-color 0.2s ease-in-out, box-shadow 0.2s;
-    }
-    
-    form input {
-        height: 2.5rem;
-    }
-    
-    form textarea {
-      height: 10rem;
-    }
-
-    form input:focus,
-    form textarea:focus {
-      border-color: #D68452;
-      box-shadow: 0 0 0 3px rgba(214, 132, 82, 0.2);
-      outline: none;
-    }
-    
-    .checkbox-container {
-    display: flex;
-    align-items: left;
-    gap: 8px; /* Espacio entre checkbox y texto */
-    font-family: sans-serif;
-    font-size: 14px;
-    cursor: pointer;
-  }
-
-  .checkbox-container input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    accent-color: #D68452; /* Color del checkbox si el navegador lo soporta */
-    
-    margin: 0;
-  }
-  
-  .checkbox-container span {
-      font-family: 'Manrope';
-      font-size: 0.7rem;
-  }
-  
-  .checkbox-container a {
-    color: #D68452;
-    text-decoration: none;
-    font-size: 0.7rem;
-    
-  }
-
-    form button {
-      background-color: #D68452;
-      color: white;
-      padding: 12px 24px;
-      font-family: 'Manrope';
-      font-size: 1rem;
-      font-weight: bold;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.2s ease-in-out;
-    }
-
-    form button:hover {
-      background-color: #005fcc;
-    }
-
-    .hidden {
-      display: none;
-    }
-    
-    /* Estilos para Footer */
-    footer {
-      background-color: #2D2D2D;
-      color: #F8F9FA;
-      padding: 3rem 1rem;
-      text-align: center;
-      margin-top: 2rem;
-    }
-    
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-    }
-    
-    .footer-column h4 {
-      font-size: 1.25rem;
-      margin-bottom: 1rem;
-      color: #D68452;
-    }
-    
-    .footer-column ul {
-      list-style: none;
-    }
-    
-    .footer-column ul li {
-      margin-bottom: 0.5rem;
-    }
-    
-    .footer-column a {
-      color: #ccc;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    
-    .footer-column a:hover {
-      color: #F8F9FA;
-    }
-    
-    .footer-bottom {
-      margin-top: 2rem;
-      padding-top: 1rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    /* Menú en dispositivos móviles */
-    .menu-icon {
-      display: none;
-      font-size: 2rem;
-      color: #2d2d2d;
-      width: 1.8rem;
-      line-height: 2.6rem;
-      cursor: pointer;
-      font-weight: 600;
-    }
-    
-    .menu-toggle {
-      display: none;
-    }
-    
-    /* Media queries - Responsive design */
-    
-    @media (min-width: 900px) {
-    
-      .cards-section > .card:nth-child(1) {
-        grid-row: 1 / 3;
-      }
-  
-      .cards-section > .card:nth-child(7) {
-        grid-column: 2 / 4;
-      }
-    }
-    
-    /* Tablet Grid */
-    
-    @media (max-width: 900px) and (min-width: 600px) {
-      .cards-section { 
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
-      .cards-section > .card:last-child {
-        grid-column: 1 / span 2;
-      }
-    }
-    
-    @media (max-width: 1024px) {
-      
-      .contact-section {
-        padding: 1.5rem;
-        justify-content: center;
-      }
-    
-      .contact-form {
-        flex: 1 0 300px;
-      }
-    } 
- 
-    @media (max-width: 768px) {
-    
-      nav {
-        padding: 0rem 0.8rem;
-      }
-      
-      .menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        flex-direction: column;
-        background-color: #DADBDD;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.5s ease-in-out;
-        width: 100%;
-      }
-      
-      .menu li {
-        display: block;
-        width: 100%;
-      }
-      
-      .menu-toggle:checked + .menu {
-        max-height: 19rem;
-      }
-      
-      .menu-icon {
-        display: block;
-      }
-      
-      .menu a {
-        text-align: center;
-        padding: 0.8rem;
-        width: 100%;
-        border-top: 1px solid #f4f4f4;
-      }
-      
-      .hero {
-        padding: 4rem 1rem;
-        height: 70vh;
-      }
-      
-      .hero h1 {
-        font-size: 1.8rem;
-        padding: 2rem 0.5rem;
-      }
-      
-      .hero p {
-        font-size: 1.1rem;
-      }
-      
-      main h1 {
-        font-size: 2.2rem;
-      }
-      
-      .contact-section {
-        flex-direction: column;
-        align-items: center;
-        padding: 2rem;
-      }
-      
-      .contact {
-        width: 100%;
-        margin-bottom: 2rem;
-        max-width: 500px;
-      }
-      
-      .contact-phone,
-      .contact-form {
-        flex: 0 0 100%; /* En móvil ocupan todo el ancho disponible */
-        max-width: 500px; 
-      }
-    }
-    
-    @media (max-width: 600px) {
-    
-      #hero-video-mobile {
-        display: block; /* Mostrar el video móvil */
-      }
-
-      #hero-video-desktop {
-        display: none; /* Ocultar el video de escritorio */
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .cards-section {
-        grid-template-columns: 1fr;
-      }
-      
-      .hero h1 {
-        font-size: 1.5rem;
-        padding: 3rem 0.3rem;
-      }
-      
-      .hero p {
-        font-size: 1rem;
-      }
-      
-      .contact {
-        max-width: 100%;
-      }
-    }
-    
-        @media (max-width: 380px) {
-      .hero h1 {
-        font-size: 1rem;
-        padding: 3rem 0.3rem;
-      }
-      
-      .hero p {
-        font-size: 0.8rem;
-      }
-    }
-    
-    .language-switcher {
-  position: fixed;
-  bottom: 0px;
-  
-  left: 20px;
-  
-  background-color: #f4f4f4;
-  border-radius: 20px 20px 0 0;
-  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
-  z-index: 9999;
-}
-
-.flag-btn {
-  display: inline-block;
-  cursor: pointer;
-  margin-bottom: 0px;
-  
-  padding: 3px 3px 0 3px;
-  
-  width: 38px;
-  
-  
-}
-
-.flag-btn img,
-.flag-menu img {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  
-}
-
-.flag-menu {
-  display: flex;
-  flex-direction: column-reverse;
-  
-  margin-bottom: 0px;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.8s ease;
-  padding: 0 3px 3px 3px;
-  
-  
-  
-}
-
-
-/* Mostrar el menú cuando el checkbox está activado */
-#toggle-lang:checked + .flag-btn + .flag-menu {
-  max-height: 500px; /* suficientemente grande para mostrar todo */
-}
-
-
-
-    
   </style>
+
 </head>
+
 <body>
-  <!-- Fondo diagonal fijo -->
+    
   <div class="diagonal-bg">
     <svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'>
       <line x1='100%' y1='60' x2='0' y2='60%' stroke='#D68452' stroke-width='30%' />
     </svg>
   </div>
   
-  <nav>
-    <img class="logo" src="./assets/img/logo-jeimar-europa.svg" alt="Logo Jeimar Europa">
-    <label for="menu-toggle" class="menu-icon">&#8801;</label>
+  <header>
+  <nav role="navigation" aria-label="Main navigation">
+    <img class="logo" src="./assets/img/logo-jeimar-europa.svg" alt="Jeimar Europa Logo">
+    <label for="menu-toggle" class="menu-icon" aria-label="Open or close the main menu">&#8801;</label>
     <input type="checkbox" id="menu-toggle" class="menu-toggle">
     <ul class="menu">
-      <li><a href="#inicio"><strong>Inicio</strong></a></li>
-      <li><a href="#servicios"><strong>Servicios</strong></a></li>
-      <li><a href="#contacto"><strong>Resultados</strong></a></li>
-      <li><a href="#contacto"><strong>Empresa</strong></a></li>
-      <li><a href="#contacto"><strong>Contacto</strong></a></li>
+      <li><a href="index.html"><strong>Home</strong></a></li>
+      <li><a href="services.html"><strong>Services</strong></a></li>
+      <li><a href="results.html"><strong>Results</strong></a></li>
+      <li><a href="company.html"><strong>Company</strong></a></li>
+      <li><a href="contact.html"><strong>Contact</strong></a></li>
     </ul>
   </nav>
+  </header>
   
+  <main role="main">
   <section id="inicio" class="hero">
-    <video id="hero-video-mobile" autoplay muted loop playsinline class="background-video" poster="./assets/img/hero-poster.jpg">
-      <source src="./assets/videos/hero-mobile.mp4" type="video/mp4">
-      Tu navegador no soporta el video HTML5.
+    <video id="hero-video-mobile" autoplay muted loop playsinline class="background-video" poster="./assets/img/hero-poster.jpg" width="720" height="1280">
+      <source src="./assets/videos/hero-mobile-h265-converter-266k.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
     </video>
     
-    <video id="hero-video-desktop" autoplay muted loop playsinline class="background-video" poster="./assets/img/hero-poster.jpg">
+    <video id="hero-video-desktop" autoplay muted loop playsinline class="background-video" poster="./assets/img/hero-poster.jpg" width="1280" height="720">
       <source src="./assets/videos/hero-h265-converter-533k.mp4" type="video/mp4">
-      Tu navegador no soporta el video HTML5.
+      Your browser does not support HTML5 video.
     </video>
+    
     <div class="hero-content">
-      <h1>EUROPEAN&nbsp;&nbsp;&nbsp;STANDARDS,<br>MEDITERRANEAN&nbsp;&nbsp;&nbsp;SOUL</h1>
-      <p>Obra nueva, reformas e interiorismo con más de 30 años de experiencia en Murcia.</p>
-      <a href="#contacto" class="btn">Contáctanos</a>
+      <h2>EUROPEAN&nbsp;&nbsp;&nbsp;STANDARDS,<br>
+          MEDITERRANEAN&nbsp;&nbsp;&nbsp;SOUL</h2>
+      <p>New builds, renovations, and interior design with over 30 years of experience in Murcia.</p>
+      <a href="#contacto" class="btn">Contact us</a>
     </div>
   </section>
   
-  <section id="servicios" class="cards-section">
-    <div class="card">
-      <h3>Construcción de obra nueva</h3>
-      <p>Edificamos desde cero con estructuras sólidas, materiales de calidad y una ejecución precisa. Viviendas, chalets, espacios comerciales y más.</p>
-    </div>
-    <div class="card">
-      <h3>Reformas integrales</h3>
-      <p>Transformamos espacios antiguos en lugares modernos, funcionales y adaptados a tu estilo de vida.</p>
-    </div>
-    <div class="card">
-      <h3>Interiorismo</h3>
-      <p>Diseñamos interiores que respiran armonía, luz y personalidad. Soluciones estéticas y funcionales a medida.</p>
-    </div>
-    <div class="card">
-      <h3>Paisajismo</h3>
-      <p>Creamos jardines y espacios exteriores que dialogan con la arquitectura. Naturaleza, diseño y sostenibilidad.</p>
-    </div>
-    <div class="card">
-      <h3>Piscinas</h3>
-      <p>Diseño y ejecución de piscinas personalizadas, con acabados premium y sistemas de mantenimiento eficientes.</p>
-    </div>
-    <div class="card">
-      <h3>Pavimentos</h3>
-      <p>Instalamos suelos técnicos, decorativos y resistentes para interiores y exteriores. Calidad desde la base.</p>
-    </div>
-    <div class="card">
-      <h3>Cimentaciones y estructuras</h3>
-      <p>La seguridad empieza bajo tierra. Ejecutamos cimentaciones y estructuras con precisión técnica y fiabilidad total.</p>
+  <section id="servicios" class="cards-section" aria-labelledby="servicios-title">
+    <h2 id="servicios-title">Services</h2>
+    
+    <div class="cards-grid">
+      <article class="card">
+        <h3>New construction</h3>
+        <p>We build from scratch with solid structures, quality materials, and precise execution. Homes, villas, commercial spaces, and more.</p>
+      </article>
+      <article class="card">
+        <h3>Full renovations</h3>
+        <p>We transform old spaces into modern, functional areas adapted to your lifestyle.</p>
+      </article>
+      <article class="card">
+        <h3>Interior design</h3>
+        <p>We design interiors that breathe harmony, light, and personality. Custom aesthetic and functional solutions.</p>
+      </article>
+      <article class="card">
+        <h3>Landscaping</h3>
+        <p>We create gardens and outdoor spaces that dialogue with architecture. Nature, design, and sustainability.</p>
+      </article>
+      <article class="card">
+        <h3>Swimming pools</h3>
+        <p>Design and construction of custom pools with premium finishes and efficient maintenance systems.</p>
+      </article>
+      <article class="card">
+        <h3>Flooring</h3>
+        <p>We install technical, decorative, and resistant flooring for interiors and exteriors. Quality from the ground up.</p>
+      </article>
+      <article class="card">
+        <h3>Foundations and structures</h3>
+        <p>Safety starts underground. We execute foundations and structures with technical precision and total reliability.</p>
+      </article>
     </div>
   </section>
   
-  <main>
-    <h1>Jeimar Europa</h1>
+  <section id="content" class="content-section" aria-labelledby="jeimar-title">
+    <h1 id="jeimar-title">JEIMAR EUROPA</h1>
     <hr>
+    <article>
     <p>
-      Somos una empresa familiar con más de <strong>tres décadas</strong> dedicadas a la construcción, reformas integrales y diseño de espacios. Nuestra trayectoria se fundamenta en la excelencia técnica, la atención al detalle y un trato humano cercano.
+      We are a family business with more than <strong>three decades</strong> dedicated to construction, full renovations, and space design. Our journey is based on technical excellence, attention to detail, and close human interaction.
     </p>
     <p>
-      Con una plantilla estable de 20 profesionales y jefes de obra <strong>multilingües</strong> (<i>inglés, francés, alemán, italiano y español</i>), acompañamos a nuestros clientes en todo el proceso, desde la idea hasta la entrega final. Apostamos por la innovación sin perder la esencia del buen hacer tradicional.
+      With a stable team of 20 professionals and <strong>multilingual site managers</strong> (<em>English, French, German, Italian, and Spanish</em>), we accompany our clients throughout the entire process, from the initial idea to final delivery. We embrace innovation without losing the essence of traditional craftsmanship.
     </p>
     <p>
-      <strong>15 años de garantía</strong> en todos nuestros proyectos.
-      <strong>Porque la confianza se construye con hechos.</strong>
+      <strong>15-year warranty</strong> on all our projects.
+      <strong>Because trust is built with facts.</strong>
     </p>
+    </article>
+  </section>
+  
+  <section class="contact-section" aria-labelledby="contacto-title">
+    <h2 id="contacto-title">Contact</h2>
+    
+    <article id="contacto" class="contact contact-phone">
+      <h3>Phone Support</h3>
+      <hr>
+      <p>
+      Our team is available by phone from Monday to Friday, between <strong>8:00 AM</strong> and <strong>5:00 PM</strong>.
+      Call us. <strong>We are ready to start.</strong>
+      </p>
+      <ul class="contact-list" role="list">
+        <li class="contact-item">
+          <img class="contact-flag" src="./assets/icons/en-flag.png" alt="Bandera de Reino Unido">
+          <div class="contact-info">
+            <a href="tel:+34630651680">+34 630 65 16 80</a>
+            <span><strong>Asun</strong> (Eng|ish)</span>
+          </div>
+        </li>
+    
+        <li class="contact-item">
+          <div class="flag-stack">
+            <img class="contact-flag" src="./assets/icons/de-flag.png" alt="Bandera de Alemania">
+            <img class="contact-flag" src="./assets/icons/it-flag.png" alt="Bandera de Italia">
+          </div>
+          <div class="contact-info">
+            <a href="tel:+34614105319">+34 614 10 53 19</a>
+            <span><strong>Pablo</strong> (Deutsch, Italian)</span>
+          </div>
+        </li>
+    
+        <li class="contact-item">
+          <img class="contact-flag" src="./assets/icons/fr-flag.png" alt="Bandera de Francia">
+          <div class="contact-info">
+            <a href="tel:+34684454822">+34 684 45 48 22</a>
+            <span><strong>Ángel</strong> (French)</span>
+          </div>
+        </li>
+          
+        <li class="contact-item">
+          <img class="contact-flag" src="./assets/icons/es-flag.png" alt="Bandera de España">
+          <div class="contact-info">
+            <a href="tel:+34637702030">+34 637 70 20 30</a>
+            <span><strong>Jesús</strong> (Spannish)</span>
+          </div>
+        </li>
+      </ul>
+      <!-- Los teléfonos pueden quedarse igual si son internacionales -->
+    </article>
+
+    <article id="formulario" class="contact contact-form">
+      <h3 id="formulario-title">Request Information</h3>
+      <hr>
+      <p>
+      Write to us at <a href="mailto:info@obraimar.com">info@jeimareuropa.com</a> or <strong>leave your message</strong> and we will get back to you to answer your request with the seriousness it deserves.
+      </p>
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" aria-labelledby="formulario-title">
+        <!-- Campo honeypot (oculto para humanos, visible para bots) -->
+        <input type="hidden" name="form-name" value="contact">
+        <p class="hidden">
+          <label>No llenar este campo: <input name="bot-field" /></label>
+        </p>
+        <p>
+          <label>Name:<br>
+            <input type="text" name="name" required>
+          </label>
+        </p>
+        <p>
+          <label>Phone number:<br>
+            <input type="tel" name="phone" pattern="[0-9+\s\-()]*" required>
+          </label>
+        </p>
+        <p>
+          <label>Email:<br>
+            <input type="email" name="email" required>
+          </label>
+        </p>
+        <p>
+          <label>Subject:<br>
+            <input type="text" name="subject" required>
+          </label>
+        </p>
+        <p>
+          <label>Message:<br>
+            <textarea name="message" required></textarea>
+          </label>
+        </p>
+      
+        <p>
+          <label class="checkbox-container">
+            <input type="checkbox" name="privacidad" required>
+            <span>I have read and accept the <a href="politica-de-privacidad.html" target="_blank">Privacy Policy</a>.</span>
+          </label>
+        </p>
+        <!-- reCAPTCHA (opcional, debes activarlo en Netlify y tener clave de sitio configurada) -->
+        <!-- <div data-netlify-recaptcha="true"></div> -->
+        <p>
+          <button type="submit" aria-label="Enviar el formulario de contacto">Send</button>
+        </p>
+      </form>
+      
+      <!-- Formulario puede quedarse igual, solo las etiquetas -->
+      <!-- Traducción de campos: Name, Phone number, Email, Subject, Message -->
+    </article>
+  </section>
   </main>
   
- <!-- Nota importante: debes colocar AMBAS secciones dentro de UN SOLO div.contact-section -->
-<section class="contact-section">
-  <!-- Primera sección (teléfonos) -->
-  <div id="contacto" class="contact contact-phone">
-    <h2>Atención Telefónica</h2>
-    <hr>
-    <p>
-      Nuestro equipo está disponible por teléfono de lunes a viernes, entre las <strong>8:00</strong> y las <strong>17:00</strong>.
-      Llámanos. <strong>Estamos listos para empezar.</strong> 
-    </p>
-    
-    <div class="contact-item">
-      <img class="contact-flag" src="./assets/icons/en-flag.png" alt="Bandera de Reino Unido">
-      <div class="contact-info">
-        <a href="tel:+34630651680">+34 630 65 16 80</a>
-        <span><strong>Asun</strong> (Inglés)</span>
-      </div>
-    </div>
-    
-    <div class="contact-item">
-      <div class="flag-stack">
-        <img class="contact-flag" src="./assets/icons/de-flag.png" alt="Bandera de Alemania">
-        <img class="contact-flag" src="./assets/icons/it-flag.png" alt="Bandera de Italia">
-      </div>
-      <div class="contact-info">
-        <a href="tel:+34614105319">+34 614 10 53 19</a>
-        <span><strong>Pablo</strong> (Alemán, Italiano)</span>
-      </div>
-    </div>
-    
-    <div class="contact-item">
-      <img class="contact-flag" src="./assets/icons/fr-flag.png" alt="Bandera de Francia">
-      <div class="contact-info">
-        <a href="tel:+34684454822">+34 684 45 48 22</a>
-        <span><strong>Ángel</strong> (Francés)</span>
-      </div>
-    </div>
-    
-    <div class="contact-item">
-      <img class="contact-flag" src="./assets/icons/es-flag.png" alt="Bandera de España">
-      <div class="contact-info">
-        <a href="tel:+34637702030">+34 637 70 20 30</a>
-        <span><strong>Jesús</strong> (Español)</span>
-      </div>
-    </div>
-    
-    <div class="contact-email">
-      
-    </div>
-    
-    
-  </div>
-
-  <!-- Segunda sección (formulario) -->
-  <div id="formulario" class="contact contact-form">
-    <h2>Solicita Información</h2>
-    <hr>
-    <p>
-      Escribenos a <a href="mailto:info@obraimar.com">info@jeimareuropa.com</a> o <strong>dejanos tu mensaje </strong>
-      y nos pondremos en contacto para responder a tu solicitud con la seriedad que merece.
-    </p>
-  
-    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-      <!-- Campo honeypot (oculto para humanos, visible para bots) -->
-      <input type="hidden" name="form-name" value="contact">
-      <p class="hidden">
-        <label>No llenar este campo: <input name="bot-field" /></label>
-      </p>
-      <p>
-        <label>Nombre:<br>
-          <input type="text" name="name" required>
-        </label>
-      </p>
-      <p>
-        <label>Número de Teléfono:<br>
-          <input type="tel" name="phone" pattern="[0-9+\s\-()]*" required>
-        </label>
-      </p>
-      <p>
-        <label>Correo Electrónico:<br>
-          <input type="email" name="email" required>
-        </label>
-      </p>
-      <p>
-        <label>Asunto:<br>
-          <input type="text" name="subject" required>
-        </label>
-      </p>
-      <p>
-        <label>Mensaje:<br>
-          <textarea name="message" required></textarea>
-        </label>
-      </p>
-      
-      <p>
-        <label class="checkbox-container">
-          <input type="checkbox" name="privacidad" required>
-          <span>He leído y acepto la <a href="/politica-de-privacidad" target="_blank">Política de Privacidad</a>.</span>
-        </label>
-      </p>
-      <!-- reCAPTCHA (opcional, debes activarlo en Netlify y tener clave de sitio configurada) -->
-      <!-- <div data-netlify-recaptcha="true"></div> -->
-      <p>
-        <button type="submit">Enviar</button>
-      </p>
-    </form>
-  </div>
-</section>
-  
-  <footer>
+  <footer role="contentinfo">
     <div class="footer-content">
       <div class="footer-column">
-        <h4>Garantía y compromiso</h4>
-        <p>En Jeimar Europa respaldamos cada proyecto con 15 años de garantía, reflejo de nuestra exigencia técnica y seriedad profesional. Con más de 30 años de trayectoria, trabajamos con precisión, responsabilidad y un firme compromiso con la calidad.</p>
+        <h3>Warranty and Commitment</h3>
+        <p>At Jeimar Europa, we back every project with a 15-year warranty, reflecting our technical standards and professional integrity. With over 30 years of experience, we work with precision, responsibility, and a firm commitment to quality.</p>
       </div>
       <div class="footer-column">
-        <h4>Enlaces Rápidos</h4>
+        <h3>Quick Links</h3>
         <ul>
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#contacto">Resultados</a></li>
-          <li><a href="#contacto">Empresa</a></li>
-          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="results.html">Results</a></li>
+          <li><a href="company.html">Company</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
       <div class="footer-column">
-        <h4>Contacto</h4>
-        <ul>
-          
+        <h3>Contact</h3>
+        <ul>  
           <li>Asun <i>(EN): </i><a href="tel:+34630651680">+34 630 65 16 80</a></li>
           <li>Pablo <i>(DE / IT): </i><a href="tel:+34614105319">+34 614 10 53 19</a></li>
           <li>Ángel <i>(FR): </i><a href="tel:+34684454822">+34 684 45 48 22</a></li>
@@ -980,54 +254,22 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 Jeimar Europa. Todos los derechos reservados.</p>
+      <p>&copy; 2025 Jeimar Europa. All rights reserved.</p>
     </div>
   </footer>
 
-<div class="language-switcher">
-    
-    
-    
-  <input type="checkbox" id="toggle-lang" hidden>
-  
-  <label for="toggle-lang" class="flag-btn">
-    <img src="./assets/icons/es-flag.png" alt="ES">
-  </label>
-  
-  <div class="flag-menu">
-    <a href="#"><img src="./assets/icons/en-flag.png" alt="EN"></a>
-    <a href="#"><img src="./assets/icons/fr-flag.png" alt="FR"></a>
-    <a href="#"><img src="./assets/icons/de-flag.png" alt="DE"></a>
-    <a href="#"><img src="./assets/icons/it-flag.png" alt="IT"></a>
+  <div class="language-switcher" role="region" aria-label="Language selector">   
+    <input type="checkbox" id="toggle-lang" hidden> 
+    <label for="toggle-lang" class="flag-btn">
+      <img src="./assets/icons/en-flag.png" alt="EN">
+    </label>  
+    <div class="flag-menu">
+      <a href="./es/index.html"><img src="./assets/icons/es-flag.png" alt="ES"></a>
+      <a href="#"><img src="./assets/icons/fr-flag.png" alt="FR"></a>
+      <a href="#"><img src="./assets/icons/de-flag.png" alt="DE"></a>
+      <a href="#"><img src="./assets/icons/it-flag.png" alt="IT"></a>
+    </div>
   </div>
-  
-</div>
 
-
-  <script>
-    // Script para la animación de la línea diagonal - Reemplaza jQuery
-    document.addEventListener('DOMContentLoaded', function() {
-      let lastKnownScrollPosition = 0;
-      let ticking = false;
-      
-      function updateDiagonal(scrollPos) {
-        const strokeWidth = 30 + scrollPos / 20;
-        document.querySelector('.diagonal-bg svg line').setAttribute('stroke-width', strokeWidth + '%');
-      }
-      
-      window.addEventListener('scroll', function() {
-        lastKnownScrollPosition = window.scrollY;
-        
-        if (!ticking) {
-          window.requestAnimationFrame(function() {
-            updateDiagonal(lastKnownScrollPosition);
-            ticking = false;
-          });
-          
-          ticking = true;
-        }
-      });
-    });
-  </script>
 </body>
 </html>
